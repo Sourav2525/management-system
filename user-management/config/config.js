@@ -1,5 +1,9 @@
 require("dotenv").config();
 
+if (!process.env.NODE_ENV) {
+    console.log("NODE_ENV is not defined.");
+    process.exit(128);
+}
 
 module.exports = function ({ env }) {
     if (env == "production") {
