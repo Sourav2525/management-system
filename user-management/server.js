@@ -15,7 +15,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 
 // Connections
-require("./config/rabbit_mq_connection").connect_rabbit_mq();  // RabbitMQ connection
+require("./config/rabbitmq_connection").connect_rabbit_mq();  // RabbitMQ connection
 require("./config/redis_connection").connect_redis_client();   // Redis connection
 require("./config/db_connection");                             // DB connection
 
