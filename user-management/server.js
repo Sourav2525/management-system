@@ -13,6 +13,7 @@ const app = express();
 app.use(express.json({ limit: "50mb", extended: true }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
+app.use(require("./config/logger").morgan_middleware);
 
 // Connections
 require("./config/rabbitmq_connection").connect_rabbit_mq();  // RabbitMQ connection
