@@ -53,4 +53,9 @@ const role_model = sequelize.define(
   }
 );
 
+role_model.associate = function(models) {
+  role_model.hasMany(models.user, { foreignKey: "role_id", sourceKey: "id", as: "user" });
+  role_model.hasMany(models["role-permission"], { foreignKey: "role_id", sourceKey: "id", as: "role_permission" });
+};
+
 module.exports = role_model;
