@@ -2,7 +2,12 @@ const { Sequelize } = require("sequelize");
 const event_emitter = require("events");
 const db_event_emitter = new event_emitter();
 
-const { sequelize_config } = require("./config.js");
+if (!process.env.NODE_ENV) {
+    console.log("NODE_ENV is not defined.");
+    process.exit(128);
+}
+
+const sequelize_config = require("./config.js")[process.env.NODE_ENV];
 const sequelize = new Sequelize(sequelize_config);
 
 const check_connection = async () => {
