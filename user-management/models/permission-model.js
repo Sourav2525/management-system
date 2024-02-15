@@ -45,7 +45,8 @@ const permission_model = sequelize.define(
     }
 );
 
-
-
+permission_model.associate = function(models) {
+    permission_model.hasMany(models["role-permission"], { foreignKey: "permissions_id", sourceKey: "id", as: "role_permission" });
+};
 
 module.exports = permission_model;

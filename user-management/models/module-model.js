@@ -41,4 +41,8 @@ const module_model = sequelize.define(
   }
 );
 
+module_model.associate = function(models) {
+  module_model.hasMany(models.permission, { foreignKey: "module_id", sourceKey: "id", as: "permission" });
+};
+
 module.exports = module_model;

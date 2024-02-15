@@ -49,4 +49,8 @@ const department_model = sequelize.define(
   }
 );
 
+department_model.associate = function(models) {
+  department_model.hasMany(models.user, { foreignKey: "department_id", sourceKey: "id", as: "user" });
+};
+
 module.exports = department_model;

@@ -2,7 +2,7 @@
 const { sequelize } = require("../config").db_connection;
 const { DataTypes } = require("sequelize");
 
-const permission_model = sequelize.define(
+const user_model = sequelize.define(
     "user",
     {
         id: {
@@ -83,7 +83,9 @@ const permission_model = sequelize.define(
     }
 );
 
+user_model.associate = function (models) {
+    user_model.hasOne(models.role, { foreignKey: "role_id", sourceKey: "id", as: "role" });
+    user_model.hasOne(models.department, { foreignKey: "department_id", sourceKey: "id", as: "department" });
+};
 
-
-
-module.exports = permission_model;
+module.exports = user_model;

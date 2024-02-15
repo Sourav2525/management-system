@@ -2,7 +2,7 @@
 const { sequelize } = require("../config").db_connection;
 const { DataTypes } = require("sequelize");
 
-const permission_model = sequelize.define(
+const role_permission_model = sequelize.define(
     "role-permission",
     {
         id: {
@@ -36,7 +36,4 @@ const permission_model = sequelize.define(
     }
 );
 
-
-
-
-module.exports = permission_model;
+module.exports = role_permission_model;
