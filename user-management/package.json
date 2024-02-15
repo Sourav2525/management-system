@@ -14,8 +14,8 @@
     "db:drop": "npx sequelize-cli db:drop",
     "migrate": "node-pg-migrate",
     "up": "npx sequelize-cli db:migrate",
-    "down": "npx sequelize-cli db:migrate:undo",
-    "down:all": "npx sequelize-cli db:migrate:undo:all",
+    "down:one": "npx sequelize-cli db:migrate:undo",
+    "down": "npx sequelize-cli db:migrate:undo:all",
     "seed": "npx sequelize-cli db:seed:all",
     "seed:undo": "npx sequelize-cli db:seed:undo",
     "seed:undo:all": "npx sequelize-cli db:seed:undo:all"
