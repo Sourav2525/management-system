@@ -84,8 +84,8 @@ const user_model = sequelize.define(
 );
 
 user_model.associate = function (models) {
-    user_model.hasOne(models.role, { foreignKey: "role_id", sourceKey: "id", as: "role" });
-    user_model.hasOne(models.department, { foreignKey: "department_id", sourceKey: "id", as: "department" });
+    user_model.hasOne(models.role, { foreignKey: "role_id", as: "role" });
+    user_model.hasOne(models.department, { foreignKey: "department_id", as: "department" });
 };
 
 module.exports = user_model;
