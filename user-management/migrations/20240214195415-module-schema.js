@@ -47,6 +47,9 @@ module.exports = {
         allowNull: true,
       },
     });
+
+    // Add indexes for foreign keys and frequently queried columns
+    await queryInterface.addIndex("module", ["status"]);
   },
 
   async down (queryInterface) {

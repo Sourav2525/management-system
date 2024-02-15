@@ -39,10 +39,12 @@ module.exports = {
       username: {
         type: Sequelize.STRING(255),
         allowNull: false,
+        unique: true
       },
       email: {
         type: Sequelize.STRING(255),
         allowNull: false,
+        unique: true
       },
       phone: {
         type: Sequelize.STRING(255),
@@ -103,6 +105,10 @@ module.exports = {
         allowNull: true,
       }
     });
+
+    // Add indexes on frequently queried columns if needed
+    await queryInterface.addIndex("user", ["role_id"]);
+    await queryInterface.addIndex("user", ["department_id"]);
   },
 
   async down (queryInterface) {

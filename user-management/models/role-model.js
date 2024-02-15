@@ -34,11 +34,11 @@ const role_model = sequelize.define(
       allowNull: false,
     },
     created_by: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     parent_id: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },

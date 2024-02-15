@@ -57,6 +57,10 @@ module.exports = {
         allowNull: true,
       },
     });
+
+    // Add index on frequently queried columns if needed
+    await queryInterface.addIndex("permission", ["module_id"]);
+    await queryInterface.addIndex("permission", ["status"]);
   },
 
   async down (queryInterface) {

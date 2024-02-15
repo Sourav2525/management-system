@@ -26,7 +26,7 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
-      permissions: {
+      permissions_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -53,7 +53,11 @@ module.exports = {
         field: "deleted_at",
         allowNull: true,
       },
-    }); 
+    });
+
+    // Add index on frequently queried columns if needed
+    await queryInterface.addIndex("role-permission", ["role_id"]);
+    await queryInterface.addIndex("role-permission", ["permissions_id"]);
   },
 
   async down (queryInterface) {

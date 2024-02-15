@@ -30,11 +30,11 @@ module.exports = {
         allowNull: false
       },
       created_by: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       parent_id: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       createdAt: {
@@ -55,6 +55,11 @@ module.exports = {
         allowNull: true,
       },
     });
+
+    // Add indexes for foreign keys and frequently queried columns
+    await queryInterface.addIndex("department", ["created_by"]);
+    await queryInterface.addIndex("department", ["parent_id"]);
+    await queryInterface.addIndex("department", ["status"]);
   },
 
   async down (queryInterface) {
