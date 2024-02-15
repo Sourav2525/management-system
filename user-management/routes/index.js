@@ -6,4 +6,6 @@ router.get("/", (req, res) => {
     });
 });
 
+router.use("/roles", require("./roles-route"));
+
 module.exports = router;
