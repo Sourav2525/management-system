@@ -31,6 +31,18 @@ module.exports = {
         defaultValue: true,
         allowNull: false
       },
+      display_picture: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      created_by: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+      },
+      parent_id: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+      },
       createdAt: {
         type: Sequelize.DATE,
         field: "created_at",
