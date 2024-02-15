@@ -2,7 +2,7 @@
 const { sequelize } = require("../config").db_connection;
 const { DataTypes } = require("sequelize");
 
-const role_model = sequelize.define(
+const department_model = sequelize.define(
   "department",
   {
     id: {
@@ -29,6 +29,14 @@ const role_model = sequelize.define(
       defaultValue: true,
       allowNull: false,
     },
+    created_by: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    parent_id: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
   },
   {
     paranoid: true, // Mark data as deleted instead of removing it once and for all from the database. It will generate deleted_at field.
@@ -41,4 +49,4 @@ const role_model = sequelize.define(
   }
 );
 
-module.exports = role_model;
+module.exports = department_model;

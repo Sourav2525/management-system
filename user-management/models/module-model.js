@@ -2,8 +2,8 @@
 const { sequelize } = require("../config").db_connection;
 const { DataTypes } = require("sequelize");
 
-const role_model = sequelize.define(
-  "role",
+const module_model = sequelize.define(
+  "module",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -29,28 +29,16 @@ const role_model = sequelize.define(
       defaultValue: true,
       allowNull: false,
     },
-    display_picture: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    created_by: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
-    parent_id: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
   },
   {
     paranoid: true, // Mark data as deleted instead of removing it once and for all from the database. It will generate deleted_at field.
     timestamps: true, // Auto-generated Timestamps
     underscored: true,
-    tableName: "role",
+    tableName: "module",
     createdAt: "created_at",
     updatedAt: "updated_at",
     deletedAt: "deleted_at",
   }
 );
 
-module.exports = role_model;
+module.exports = module_model;
