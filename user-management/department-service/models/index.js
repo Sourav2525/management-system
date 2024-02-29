@@ -1,0 +1,1 @@
+exports.department_model = require("./department-model")
