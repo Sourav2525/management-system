@@ -1,0 +1,42 @@
+asyncapi: '2.0.0'
+info:
+  title: User Management AsyncAPI
+  version: '1.0.0'
+  description: API for managing users asynchronously
+
+servers:
+  production:
+    url: api.example.com
+    protocol: amqp
+
+channels:
+  userEvents:
+    description: Events related to user management
+    subscribe:
+      operationId: userEvents
+      message:
+        payload:
+          $ref: '#/components/schemas/UserEvent'
+
+components:
+  schemas:
+    UserEvent:
+      type: object
+      properties:
+        eventType:
+          type: string
+          enum: ['USER_CREATED', 'USER_UPDATED', 'USER_DELETED']
+        user:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string
+      required:
+        - username
+        - email

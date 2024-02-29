@@ -12,13 +12,13 @@ export default function Login() {
           <p className="text-white text-xl mt-3">Reach your business Goals in record<br className="2xl:hidden" /> time.</p>
         </div>
       </div>
-      <div className="relative lg:p-8">
+      <div className="relative lg:p-8 flex items-center">
         <Image src="/onboarding/Mask Group.png" alt="Mask" width={300} height={200} className="absolute right-0 top-0 z-0" />
-        <div className="relative mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px] p-4 border z-10">
+        <div className="relative mx-auto align-middle flex w-full flex-col justify-center space-y-6 sm:w-[350px] p-4 border z-10">
           <div className="flex flex-col space-y-2">
-            <h1 className="text-2xl font-semibold tracking-tight">Create an account</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">Sign in</h1>
             <p className="text-sm text-muted-foreground">
-              Enter your email below to create your account
+              Enter your details to login
             </p>
           </div>
         </div>
